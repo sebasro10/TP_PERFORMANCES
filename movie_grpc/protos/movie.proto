@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+service Movie {
+    rpc Home(Empty) returns (Message) {}
+    rpc GetMovieByID(MovieID) returns (MovieData) {}
+    rpc GetListMovies(Empty) returns (MovieDataArray) {}
+    rpc CreateMovie(MovieData) returns (Message) {}
+}
+
+message Message {
+    string message = 1;
+}
+
+message MovieID {
+    string id = 1;
+}
+
+message Director {
+    string firstName = 1;
+    string lastName = 2;
+}
+
+message MovieData {
+    string id = 1;
+    string rank = 2;
+    string title = 3;
+    string fullTitle = 4;
+    string year = 5;
+    string image = 6;
+    string imDbRating = 7;
+    string imDbRatingCount = 8;
+    Director director = 9;
+}
+
+message MovieDataArray {
+    repeated MovieData movies = 1;
+}
+
+message Empty {
+}
