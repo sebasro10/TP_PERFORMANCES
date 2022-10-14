@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  movie_graphql:
+    container_name: movie_graphql
+    build: ./movie_graphql/
+    ports:
+      - "5001:5001"
+  movie_grpc:
+    container_name: movie_grpc
+    build: ./movie_grpc/
+    ports:
+      - "5002:5002"
+  movie_rest:
+    container_name: movie_rest
+    build: ./movie_rest/
+    ports:
+      - "5003:5003"
