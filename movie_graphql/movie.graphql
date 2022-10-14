@@ -1,0 +1,47 @@
+type Query {
+    home: Message
+    get_list_movies: [Movie]
+    movie_with_id(_id: String!): Movie
+}
+
+type Mutation {
+    create_movie(_movie: NewMovie!): Message
+}
+
+type Message {
+    message: String!
+}
+
+type Movie {
+    id: String!
+    rank: String!
+    title: String!
+    fullTitle: String!
+    year: String!
+    image: String!
+    imDbRating: String!
+    imDbRatingCount: String!
+    director: Director!
+}
+
+type Director {
+    firstName: String!
+    lastName: String!
+}
+
+input NewMovie {
+    id: String!
+    rank: String!
+    title: String!
+    fullTitle: String!
+    year: String!
+    image: String!
+    imDbRating: String!
+    imDbRatingCount: String!
+    director: NewDirector!
+}
+
+input NewDirector {
+    firstName: String!
+    lastName: String!
+}
